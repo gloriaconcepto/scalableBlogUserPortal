@@ -1,5 +1,5 @@
-import { dev } from "./environments/dev";
-import { production } from "./environments/prod";
+import { dev } from "./environment/dev";
+import { production } from "./environment/prod";
 
 let config;
 
