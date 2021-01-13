@@ -1,11 +1,20 @@
 import React from "react";
-
+import { withRouter } from "react-router-dom";
+import { HOMEPAGE } from "../../../constants/routes/constRoutes";
 import { Card, Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import history from "../../Router/Router";
 const LoginForm = (props) => {
     const onFinish = (values) => {
         console.log("Received values of form: ", values);
     };
+    const newLogin = (values) => {
+        //temporary once firebase is fixed...
+        if (values.password === "mmk") {
+            props.history.push(HOMEPAGE);
+        }
+    };
+
     return (
         <section>
             <Card>
@@ -16,7 +25,7 @@ const LoginForm = (props) => {
                         initialValues={{
                             remember: true,
                         }}
-                        onFinish={onFinish}
+                        onFinish={newLogin}
                         style={{ fontFamily: " BasisGrotesquePro-Regular, sans-serif", width: "max-content" }}
                     >
                         <Form.Item
@@ -63,4 +72,4 @@ const LoginForm = (props) => {
     );
 };
 
-export default LoginForm;
+export default withRouter(LoginForm);

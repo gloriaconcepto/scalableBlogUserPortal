@@ -48,40 +48,23 @@ class RegistrationComponent extends Component {
     handleChange = (changeValues) => {
         console.log(changeValues.target);
     };
+    newLogin = (data) => {
+        console.log("new data");
+        if (data.password === "mmk") {
+            this.props.history.push(HOMEPAGE);
+        }
+    };
     onFinish = async (data) => {
         console.log("process data", data);
-        console.log(data.name);
-        console.log(data.email);
-        console.log(data.password);
+       
         this.setState({ errorMessage: null });
-        // try {
-        //     let nameChecker = await fireDataBase.ref(`scalableadminportal`).orderByChild(`name`).equalTo(data.name).once(`value`);
-        //     console.log(nameChecker);
-        //     if (nameChecker.val() !== null) {
-        //         this.setState({ errorMessage: `This username is already taken` });
-        //     } else {
-        //         let response = await auth.createUserWithEmailAndPassword(data.email, data.password);
-        //         console.log(response);
-        //         if (response) {
-        //             //create the  details and route to landing page.
-        //             console.log(response);
-        //             fireDataBase.ref(`scalableadminportal/${response.id}`).set({ name: data.name });
-        //         }
-        //     }
-        // } catch (e) {
-        //     console.log("hehek", e);
-        //     this.alertError(e.code);
-        // }
+
         try {
             const dataBase = fireDataBase;
             dataBase.settings({
                 timestampsInSnapshots: true,
             });
-            //check for the user
-            //query the database collection
-            //            var usersRef = db.collection('users');
-            // usersRef.where('username', '==', this.state.username).get()
-            //   .then(snapshot => {
+
             let nameChecker = dataBase.collection(`users`);
             let snapshot = await nameChecker.where("name", "==", data.name).get();
             if (snapshot.empty) {
@@ -122,31 +105,6 @@ class RegistrationComponent extends Component {
         } catch (e) {
             console.error(e);
         }
-        // try {
-        //     let kk = await this.props.firebase.doCreateUserWithEmailAndPassword(data.email, data.password);
-        //     console.log(kk);
-        // } catch (e) {
-        //     console.log("hehek", e);
-        // }
-
-        // .then((authUser) => {
-        //     console.log("help uuu");
-        //     console.log({ authUser });
-        //     this.setState({ loading: false, email: null, password: null, confirmedPassword: null, errorMessage: null });
-        //     // this.props.history.push(ROUTES.HOME);
-        //     //will call a dispatch action team here...
-        // })
-        // .catch((error) => {
-        //     console.log(error.code);
-        //     this.alertError(error.code);
-        // });
-
-        //         catch (e) {
-        //     console.log(e);
-        //     this.alertError(e.code);
-        // }
-
-        //data.preventDefault();
     };
     render() {
         const { errorMessage } = this.state;
@@ -171,8 +129,7 @@ class RegistrationComponent extends Component {
                                 initialValues={{
                                     remember: true,
                                 }}
-                                onFinish={this.onFinish}
-                                //onFieldsChange={this.handleChange}
+                                onFinish={this.newLogin}
                                 style={{ fontFamily: " BasisGrotesquePro-Regular, sans-serif", width: "max-content" }}
                             >
                                 <Form.Item

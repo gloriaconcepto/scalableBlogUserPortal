@@ -14,8 +14,7 @@ const Routes = (props) => {
     const { userdetails } = props;
     //REDIREDCT TO LOGIN IF THE USER IS NOT LOGIN CONCEPTO.
     return (
-        <BrowserRouter history={history}>
-           
+        <Router history={history}>
             <div>
                 <Switch>
                     <Route exact path={LANDINGPAGE} component={ManageLoginPages} />
@@ -38,7 +37,7 @@ const Routes = (props) => {
           /> */}
                 </Switch>
             </div>
-        </BrowserRouter>
+        </Router>
     );
 };
 export default connect((state) => ({
