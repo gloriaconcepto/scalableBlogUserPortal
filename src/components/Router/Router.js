@@ -1,22 +1,26 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Switch, Route, Redirect, Router, BrowserRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import { LANDINGPAGE, SIGNUPPAGE } from "../../constants/routes/constRoutes";
+import { LANDINGPAGE, SIGNUPPAGE, HOMEPAGE } from "../../constants/routes/constRoutes";
 import RegistrationComponent from "../logins/admin/Registration";
-//import AuthRoute from "./ProtecteRoutes";
+import ManagedHomeComponent from "../HomeManager/index";
+import AuthRoute from "./ProtecteRoutes";
 import ManageLoginPages from "../logins";
 
 export const history = createBrowserHistory();
 
 const Routes = (props) => {
+    const { userdetails } = props;
     //REDIREDCT TO LOGIN IF THE USER IS NOT LOGIN CONCEPTO.
     return (
         <BrowserRouter history={history}>
+           
             <div>
                 <Switch>
                     <Route exact path={LANDINGPAGE} component={ManageLoginPages} />
                     <Route exact path={SIGNUPPAGE} component={RegistrationComponent} />
-                    {/* <AuthRoute /> */}
+                    <AuthRoute authUser={userdetails && userdetails.Userdata && userdetails.Userdata.data.auth} path={HOMEPAGE} component={ManagedHomeComponent} />
                     {/* <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
           
@@ -37,4 +41,9 @@ const Routes = (props) => {
         </BrowserRouter>
     );
 };
-export default Routes;
+export default connect((state) => ({
+    userdetails: state.getUserLoginsDetails,
+}))(Routes);
+//export default connect((state) => ({
+//user: state.viewuser
+//}))(ViewRandomiser);
