@@ -7,7 +7,7 @@ import RegistrationComponent from "../logins/admin/Registration";
 import ManagedHomeComponent from "../HomeManager/index";
 import AuthRoute from "./ProtecteRoutes";
 import ManageLoginPages from "../logins";
-
+import ManagedHeader from "../Header";
 export const history = createBrowserHistory();
 
 const Routes = (props) => {
@@ -16,11 +16,13 @@ const Routes = (props) => {
     return (
         <Router history={history}>
             <div>
-                <Switch>
-                    <Route exact path={LANDINGPAGE} component={ManageLoginPages} />
-                    <Route exact path={SIGNUPPAGE} component={RegistrationComponent} />
-                    <AuthRoute authUser={userdetails && userdetails.Userdata && userdetails.Userdata.data.auth} path={HOMEPAGE} component={ManagedHomeComponent} />
-                    {/* <Route exact path="/" component={HomePage} />
+                <ManagedHeader />
+                <div className="container__wrap">
+                    <Switch>
+                        <Route exact path={LANDINGPAGE} component={ManageLoginPages} />
+                        <Route exact path={SIGNUPPAGE} component={RegistrationComponent} />
+                        <AuthRoute authUser={userdetails && userdetails.Userdata && userdetails.Userdata.data.auth} path={HOMEPAGE} component={ManagedHomeComponent} />
+                        {/* <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
           
           <Route exact path='/checkout' component={CheckoutPage} />
@@ -35,7 +37,8 @@ const Routes = (props) => {
               )
             }
           /> */}
-                </Switch>
+                    </Switch>
+                </div>
             </div>
         </Router>
     );

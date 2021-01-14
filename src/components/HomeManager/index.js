@@ -1,12 +1,11 @@
-import React,{memo} from 'react';
+import React, { memo } from "react";
 
-const ManagedHomeComponent=memo((props)=>{
-    return(
-      <div>
-          HELLO WELCOME 
-    
-      </div>  
-    )
-})
+const ManagedHomeComponent = memo((props) => {
+    return (
+        <React.Fragment>
+           hello world
+        </React.Fragment>
+    );
+});
 
 export default ManagedHomeComponent;
