@@ -1,30 +1,19 @@
 import React from "react";
-import { createBrowserHistory } from 'history';
+import { createBrowserHistory } from "history";
 import "antd/dist/antd.css";
 //import 'antd/dist/antd.css';
 //import ManageLoginPages from "./components/logins";
 import Routes from "./components/Router/Router";
-import { BrowserRouter } from "react-router-dom";
-
-// import { Button } from "antd";
 import "./App.less";
 import "../src/components/css/layout.css";
 export const history = createBrowserHistory();
 
 function App() {
-    
     return (
-        <BrowserRouter history={history}>
-            <div className="App">
-                <Routes />
-            </div>
-        </BrowserRouter>
+        <div className="App">
+            <Routes />
+        </div>
     );
 }
 
 export default App;
-
-
-
-  
-   

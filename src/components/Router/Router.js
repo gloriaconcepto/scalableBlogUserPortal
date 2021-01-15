@@ -13,10 +13,11 @@ export const history = createBrowserHistory();
 const Routes = (props) => {
     const { userdetails } = props;
     //REDIREDCT TO LOGIN IF THE USER IS NOT LOGIN CONCEPTO.
+    console.log(userdetails)
     return (
         <Router history={history}>
             <div>
-                <ManagedHeader />
+               {userdetails && userdetails.login && (<ManagedHeader />)}
                 <div className="container__wrap">
                     <Switch>
                         <Route exact path={LANDINGPAGE} component={ManageLoginPages} />
@@ -46,6 +47,4 @@ const Routes = (props) => {
 export default connect((state) => ({
     userdetails: state.getUserLoginsDetails,
 }))(Routes);
-//export default connect((state) => ({
-//user: state.viewuser
-//}))(ViewRandomiser);
+

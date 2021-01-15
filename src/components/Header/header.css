@@ -5,6 +5,7 @@
   height: 60px;
   z-index: 101;
   box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.05);
+  
 }
 
 .menu-horizontal{
@@ -25,11 +26,13 @@
     bottom: 13px;
     flex-wrap: wrap;
     justify-content: center;
+   
 }
 
 .top_right_Items{
     flex-grow: 1;
     margin-right: 29px;
+    color:'#d3d3d3';
 }
 
 .top_left{

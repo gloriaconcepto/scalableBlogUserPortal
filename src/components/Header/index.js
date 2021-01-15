@@ -4,7 +4,7 @@ const ManagedHeader = memo((props) => {
     return (
         <div className="headerContainer">
             <div className="top_left">
-                <h3>Scalable</h3>
+                <h3 style={{ color: "#d3d3d3" }}>Scalable</h3>
             </div>
             <div className="top_right">
                 <div className="top_right_Items">Publications</div>

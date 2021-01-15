@@ -1,19 +1,28 @@
-import React from "react";
+import React,{useEffect } from "react";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { HOMEPAGE } from "../../../constants/routes/constRoutes";
 import { Card, Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { temporaryDetails } from "../../usersData/actions/users.details.actions";
 
 const LoginForm = (props) => {
-    // const onFinish = (values) => {
-    //     console.log("Received values of form: ", values);
-    // };
+    const { dispatch,loginDetails } = props;
+  
     const newLogin = (values) => {
         //temporary once firebase is fixed...
         if (values.password === "mmk") {
-            props.history.push(HOMEPAGE);
+            dispatch(temporaryDetails());
+           
         }
     };
+    useEffect(()=>{
+        console.log(loginDetails);
+     if(loginDetails&&loginDetails.login){
+         console.log('take me home');
+         props.history.push(HOMEPAGE);
+     }
+    },[dispatch,loginDetails])
 
     return (
         <section>
@@ -72,4 +81,6 @@ const LoginForm = (props) => {
     );
 };
 
-export default withRouter(LoginForm);
+export default connect((state)=>({
+    loginDetails:state.getUserLoginsDetails
+}))(withRouter(LoginForm));
