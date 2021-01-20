@@ -13,16 +13,17 @@ export const history = createBrowserHistory();
 const Routes = (props) => {
     const { userdetails } = props;
     //REDIREDCT TO LOGIN IF THE USER IS NOT LOGIN CONCEPTO.
-    console.log(userdetails)
+    console.log(userdetails);
     return (
         <Router history={history}>
             <div>
-               {userdetails && userdetails.login && (<ManagedHeader />)}
-                <div className="container__wrap">
+                {userdetails && userdetails.login && <ManagedHeader />}
+                <div className="container__wrap container">
                     <Switch>
                         <Route exact path={LANDINGPAGE} component={ManageLoginPages} />
                         <Route exact path={SIGNUPPAGE} component={RegistrationComponent} />
-                        <AuthRoute authUser={userdetails && userdetails.Userdata && userdetails.Userdata.data.auth} path={HOMEPAGE} component={ManagedHomeComponent} />
+                        <Route exact path={HOMEPAGE} component={ManagedHomeComponent} />
+                        {/* <AuthRoute authUser={userdetails && userdetails.Userdata && userdetails.Userdata.data.auth} path={HOMEPAGE} component={ManagedHomeComponent} /> */}
                         {/* <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
           
@@ -47,4 +48,3 @@ const Routes = (props) => {
 export default connect((state) => ({
     userdetails: state.getUserLoginsDetails,
 }))(Routes);
-
