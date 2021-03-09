@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import ManagedAdvertComponent from "./advert";
 import ManagedDashBoardComponent from "./dashboard";
+import './Home.scss';
 const ManagedHomeComponent = memo((props) => {
     return (
         

@@ -16,7 +16,7 @@ const Tags = ({ data }) => {
 };
 
 const PublishedCardUtility = memo((props) => {
-    const { view, title,comment,tags } = props;
+    const { views, title,comments,tags } = props;
     return (
         <Card
             hoverable
@@ -28,11 +28,11 @@ const PublishedCardUtility = memo((props) => {
         >
             <div className="mb-2">
                 <EyeOutlined className="eyeOutlined" />
-                <span className="padText"> {view}</span>
+                <span className="padText"> {views}</span>
             </div>
             <div>
                 <CommentOutlined className="commentOutlined" />
-                <span className="padText">{comment}</span>
+                <span className="padText">{comments}</span>
                 <small className="cardLink">click for more details</small>
             </div>
         </Card>
