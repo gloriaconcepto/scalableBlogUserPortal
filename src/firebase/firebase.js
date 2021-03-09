@@ -14,23 +14,8 @@ class Firebase {
 
     doCreateUserWithEmailAndPassword = (email, password) => this.auth.createUserWithEmailAndPassword(email, password);
 
-    // doCreateUserWithEmailAndPassword = (email, password) => {
-    //     let pp = false;
-    //     this.auth
-    //         .createUserWithEmailAndPassword(email, password)
-    //         .then((authUser) => {
-    //             return { status: "sucess", data: authUser };
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
+    doSignInWithEmailAndPassword = (email, password) => this.auth.signInWithEmailAndPassword(email, password);
 
-    //             return { status: "failed", data: error };
-    //         });
-    // };
-
-    doSignInWithEmailAndPassword = (email, password) => {
-        this.auth.signInWithEmailAndPassword(email, password);
-    };
     doSignOut = () => {
         this.auth.signOut();
     };
@@ -43,11 +28,9 @@ class Firebase {
         this.auth.currentUser.updatePassword(password);
     };
 }
-const mapDispatchToProps = (dispatch) => ({
-    setErrorMessage: (error) => dispatch(createEmailError(error)),
-});
+// const mapDispatchToProps = (dispatch) => ({
+//     setErrorMessage: (error) => dispatch(createEmailError(error)),
+// });
 export default Firebase;
 
-// export default connect(null, mapDispatchToProps)(Firebase);
-// export const auth = firebase.auth();
-// export const fireDataBase= firebase.firestore()
+

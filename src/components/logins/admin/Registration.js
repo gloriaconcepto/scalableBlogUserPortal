@@ -8,11 +8,7 @@ import { ErrorMessages } from "../../../constants/constErrors";
 import { HOMEPAGE } from "../../../constants/routes/constRoutes";
 import { getUserDetails, temporaryDetails } from "../../usersData/actions/users.details.actions";
 import { withFirebase } from "../../../firebase";
-// const SignUpPage=()=>(
-//     <React.Fragment>
 
-//     </React.Fragment>
-// )
 class RegistrationComponent extends Component {
     constructor(props) {
         super(props);
