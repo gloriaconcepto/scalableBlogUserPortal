@@ -3,7 +3,7 @@ import ManagedAdvertComponent from "./advert";
 import ManagedDashBoardComponent from "./dashboard";
 const ManagedHomeComponent = memo((props) => {
     return (
-        <React.Fragment>
+        
             <div className="row">
                 <div className="col-10">
                     <ManagedDashBoardComponent />
@@ -12,7 +12,7 @@ const ManagedHomeComponent = memo((props) => {
                     <ManagedAdvertComponent />
                 </div>
             </div>
-        </React.Fragment>
+        
     );
 });
 

@@ -1,11 +1,23 @@
 .headerContainer{
-    width: 100%;
-  position: fixed;
-  top: 0;
-  height: 60px;
-  z-index: 101;
+    background:white;
+    height:60px;
+     width:100%;
+    position:fixed;
+     top:0;
+    left:0;
+      box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.05);
+ 
+}
+
+.theaderContainer{
+    background:white;
+height:60px;
+ width:100%;
+position:fixed;
+ top:0;
+left:0;
   box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.05);
-  
+
 }
 
 .menu-horizontal{

@@ -1,0 +1,32 @@
+/* .ant-card-head {
+    min-height: 48px;
+    margin-bottom: -1px;
+    padding: 0 24px;
+    color: red !important;
+    font-weight: 500;
+    font-size: 16px;
+    background: transparent;
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 2px 2px 0 0;
+} */
+
+.eyeOutlined{
+    color: #F99736;
+    font-size: 27px
+}
+.padText{
+ 
+margin-left: 0.5rem;   
+}
+
+.cardLink{
+ color: blue;
+ margin-left: 2rem;
+ font-style: italic;    
+ 
+}
+
+.commentOutlined {
+    color: #46AA2B;
+    font-size: 20px  
+}

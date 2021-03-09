@@ -27,7 +27,7 @@ class ManagedLoginAdmin extends Component {
                             <h2>Hi New here ?</h2>
                             <p>Do you want to discover new ways of expressing your thoughts via blogging!</p>
                             <NavLink to={SIGNUPPAGE}>
-                                <Button type="primary" htmlType="button" className="login-form-button"  style={{ background: "#D8DCDD", borderColor: "#D8DCDD", width: "auto" }}>
+                                <Button type="primary" htmlType="button" className="login-form-button" style={{ background: "#D8DCDD", borderColor: "#D8DCDD", width: "auto" }}>
                                     Sign Up
                                 </Button>
                             </NavLink>
