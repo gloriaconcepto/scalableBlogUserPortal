@@ -2,9 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { Switch, Route, Redirect, Router, BrowserRouter, withRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import { LANDINGPAGE, SIGNUPPAGE, HOMEPAGE } from "../../constants/routes/constRoutes";
+import { LANDINGPAGE, SIGNUPPAGE, HOMEPAGE, SPECIFICBLOGPAGE, test } from "../../constants/routes/constRoutes";
 import RegistrationComponent from "../logins/admin/Registration";
 import ManagedHomeComponent from "../HomeManager/index";
+import ManagedPublishedBlog from "../publishedBlogs";
 import AuthRoute from "./ProtecteRoutes";
 import ManageLoginPages from "../logins";
 import ManagedHeader from "../Header";
@@ -16,23 +17,23 @@ const Routes = (props) => {
     //REDIREDCT TO LOGIN IF THE USER IS NOT LOGIN CONCEPTO.
     console.log(userdetails);
     return (
-        <Router history={history}>
+        <div>
             {userdetails && userdetails.login && (
                 <div className="headerContainer">
                     <ManagedHeader />
                 </div>
             )}
-
-            <div className={userdetails && userdetails.login ? "container__wrap" : ""}>
-                <Switch>
+            <Switch>
+                <div className={"container__wrap"}>
+                    <Route exact={true} path={SPECIFICBLOGPAGE} component={ManagedPublishedBlog} />
                     <Route exact={true} path={SIGNUPPAGE} component={RegistrationComponent} />
                     <Route exact={true} path={HOMEPAGE} component={ManagedHomeComponent} />
                     <Route exact={true} path={LANDINGPAGE} component={ManageLoginPages} />
-                </Switch>
-            </div>
-        </Router>
+                </div>
+            </Switch>
+        </div>
     );
 };
 export default connect((state) => ({
     userdetails: state.getUserLoginsDetails,
-}))(withRouter(Routes));
+}))(Routes);

@@ -7,15 +7,13 @@ import Routes, { history } from "./components/Router/Router";
 import "./App.less";
 import "../src/components/css/layout.css";
 
-import { Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 //const history = createBrowserHistory();
 function App() {
     return (
-        <Router history={history}>
-            <main className="App">
-                <Routes />
-            </main>
-        </Router>
+        <BrowserRouter>
+            <Routes />
+        </BrowserRouter>
     );
 }
 

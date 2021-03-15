@@ -1,13 +1,13 @@
 
 
 .container__wrap {
-   position: relative;
+   /* position: relative; */
     padding-left: 0;
     margin-top: 90px;
     margin-left: 9rem;
     min-height: 100vh;
     transition: padding-left 0.3s; 
-     z-index: -1;
+     /* z-index: -1; */
 }
 
 .newcontainer__wrap {
