@@ -6,6 +6,7 @@ const BlogsContent = memo((props) => {
         <div>
             <section>
                 <h1>{title}</h1>
+                <hr className="published_horizontalLine" />
             </section>
             <section>
                 <p>
