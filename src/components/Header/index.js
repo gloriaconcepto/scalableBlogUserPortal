@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-
+import { NavLink } from "react-router-dom";
 const ManagedHeader = memo((props) => {
     return (
         <div>
@@ -7,8 +7,28 @@ const ManagedHeader = memo((props) => {
                 <h3 style={{ color: "#d3d3d3" }}>Scalable</h3>
             </div>
             <div className="top_right">
-                <div className="top_right_Items">Publications</div>
-                <div className="top_right_Items">Create</div>
+                <NavLink
+                    className="top_right_Items"
+                    to="/welcome-home-page"
+                    activeStyle={{
+                        color: "black",
+                        borderBottom: "3px solid #d3d3d3",
+                    }}
+                >
+                    Publications
+                </NavLink>
+                <div className="top_right_Items">
+                    <NavLink
+                        className="top_right_Items"
+                        to="/create-post"
+                        activeStyle={{
+                            color: "black",
+                            borderBottom: "3px solid #d3d3d3",
+                        }}
+                    >
+                        Create
+                    </NavLink>
+                </div>
                 <div className="top_right_Items">Settings</div>
             </div>
         </div>
