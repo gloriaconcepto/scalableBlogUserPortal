@@ -1,9 +1,11 @@
 import React, { memo } from "react";
-
+import ManagedTextEditor from "../../utilities/textEditor/MangeTextEditor";
 const ManagedCreatePost = memo((props) => {
     return (
         <div className="row">
-            <h1>CREATE POSTS</h1>
+            <div className="col-10">
+                <ManagedTextEditor />
+            </div>
         </div>
     );
 });
