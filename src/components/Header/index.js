@@ -29,7 +29,18 @@ const ManagedHeader = memo((props) => {
                         Create
                     </NavLink>
                 </div>
-                <div className="top_right_Items">Settings</div>
+                <div className="top_right_Items">
+                    <NavLink
+                        className="top_right_Items"
+                        to="/settings"
+                        activeStyle={{
+                            color: "black",
+                            borderBottom: "3px solid #d3d3d3",
+                        }}
+                    >
+                        Settings
+                    </NavLink>
+                </div>
             </div>
         </div>
     );
