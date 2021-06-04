@@ -9,14 +9,20 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import Firebase, { FirebaseContext } from "./firebase";
-
+{
+    /* <Provider store={store}>
+<PersistGate loading={null} persistor={persistor}>
+    <FirebaseContext.Provider value={new Firebase()}>
+        <App />
+    </FirebaseContext.Provider>
+</PersistGate>
+</Provider> */
+}
 ReactDOM.render(
     <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-            <FirebaseContext.Provider value={new Firebase()}>
-                <App />
-            </FirebaseContext.Provider>
-        </PersistGate>
+        <FirebaseContext.Provider value={new Firebase()}>
+            <App />
+        </FirebaseContext.Provider>
     </Provider>,
     document.getElementById("root")
 );

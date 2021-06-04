@@ -12,22 +12,31 @@ import { withFirebase } from "../../../firebase";
 const LoginForm = (props) => {
     const { dispatch, loginDetails, firebase } = props;
     const [errorMessage, setError] = useState(null);
+    const [userData, setUserData] = useState({ email: undefined });
 
     const newLogin = (values) => {
         //temporary once firebase is fixed...
         firebase
             .doSignInWithEmailAndPassword(values.email, values.password)
-            .then(() => {
+            .then((response) => {
+              
+                setUserData({ ...userData, email: response && response.user && response.user.providerData && response.user.providerData[0].email });
                 dispatch(temporaryDetails());
+             
             })
             .catch((error) => {
                 setError(error && error.message);
             });
     };
+
     useEffect(() => {
-        console.log(loginDetails);
         if (loginDetails && loginDetails.login) {
             props.history.push(HOMEPAGE);
+            if (typeof Storage !== "undefined") {
+                const userDataEmail = userData.email;
+                window.localStorage.setItem("userEmail", userDataEmail);
+            }
+            //store the details in
         }
     }, [dispatch, loginDetails]);
 
