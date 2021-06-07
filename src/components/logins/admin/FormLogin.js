@@ -19,10 +19,11 @@ const LoginForm = (props) => {
         firebase
             .doSignInWithEmailAndPassword(values.email, values.password)
             .then((response) => {
-              
+                console.log(response.user.providerData[0]);
                 setUserData({ ...userData, email: response && response.user && response.user.providerData && response.user.providerData[0].email });
                 dispatch(temporaryDetails());
-             
+                // let dataUser = firebase.getUserDetails();
+                // console.log(dataUser);
             })
             .catch((error) => {
                 setError(error && error.message);

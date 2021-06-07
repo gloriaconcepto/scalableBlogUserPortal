@@ -27,6 +27,10 @@ class Firebase {
     doPasswordUpdate = (password) => {
         this.auth.currentUser.updatePassword(password);
     };
+    getUserDetails=()=>{
+       let info= this.auth.currentUser;
+       return info
+    }
 }
 // const mapDispatchToProps = (dispatch) => ({
 //     setErrorMessage: (error) => dispatch(createEmailError(error)),

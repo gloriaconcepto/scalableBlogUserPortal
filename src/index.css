@@ -18,7 +18,15 @@ code {
 .ant-col-rtl .login-form-forgot {
     float: left;
 }
+.ant-spin-dot-item{
+    background-color: rgb(119, 114, 114) !important;
+  }
 .login-form-button {
     width: 100%;
 }
+.sub-title{
+    font-size: 1rem;
+    /* color: #629EFF; */
+}
+
 
