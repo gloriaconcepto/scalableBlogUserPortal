@@ -20,21 +20,16 @@ class Firebase {
         this.auth.signOut();
     };
 
-    doPasswordReset = (email) => {
-        this.auth.sendPasswordResetEmail(email);
-    };
+    doPasswordReset = (email) => this.auth.sendPasswordResetEmail(email);
 
-    doPasswordUpdate = (password) => {
-        this.auth.currentUser.updatePassword(password);
+    doPasswordUpdate = (password) => this.auth.currentUser.updatePassword(password);
+
+    getUserDetails = () => {
+        let info = this.auth.currentUser;
+        return info;
     };
-    getUserDetails=()=>{
-       let info= this.auth.currentUser;
-       return info
-    }
 }
 // const mapDispatchToProps = (dispatch) => ({
 //     setErrorMessage: (error) => dispatch(createEmailError(error)),
 // });
 export default Firebase;
-
-

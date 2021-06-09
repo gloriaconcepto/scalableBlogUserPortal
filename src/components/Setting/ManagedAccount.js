@@ -8,11 +8,29 @@ const ManagedAccount = memo((props) => {
     const { firebase } = props;
     const [isUpdating, setIsUpdating] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("false");
+    const [errorMessage, setErrorMessage] = useState(null);
 
+    useEffect(() => {
+        return () => {
+            setIsModalOpen(false);
+            setErrorMessage(null);
+            setIsUpdating(false);
+        };
+    }, []);
     const updatePassword = (values) => {
         console.log("am about updating", values);
-        // firebase.doPasswordUpdate()
+        setIsUpdating(true);
+        firebase
+            .doPasswordUpdate(values)
+            .then((response) => {
+                console.log(response);
+                openNotificationWithIcon("success", "Password Change", "Password Change Successful", "topRight");
+                setIsUpdating(false);
+            })
+            .catch((error) => {
+                setErrorMessage(error && error.message);
+                setIsUpdating(false);
+            });
     };
     const onClose = () => {
         setErrorMessage(null);
@@ -31,6 +49,9 @@ const ManagedAccount = memo((props) => {
     };
     const cancelModal = () => {
         setIsModalOpen(false);
+    };
+    const showToast = () => {
+        openNotificationWithIcon("success", "Password Reset", "Check your Email to Reset your Password", "topRight", 0);
     };
     return (
         <React.Fragment>
@@ -59,7 +80,7 @@ const ManagedAccount = memo((props) => {
                     <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Password" />
                 </Form.Item>
                 <Form.Item>
-                    <label className="login-form-forgot" href="" style={{ paddingRight: "13rem", cursor: "pointer", fontSize: "11px", color: "#629EFF" ,marginTop: '-2rem'}} onClick={(e) => displayForgetPasswordModule(e)}>
+                    <label className="login-form-forgot" href="" style={{ paddingRight: "13rem", cursor: "pointer", fontSize: "11px", color: "#629EFF", marginTop: "-2rem" }} onClick={(e) => displayForgetPasswordModule(e)}>
                         Forgot password
                     </label>
                 </Form.Item>
@@ -69,7 +90,7 @@ const ManagedAccount = memo((props) => {
                     </Button>
                 </Form.Item>
             </Form>
-            <ForgotPassword openModal={isModalOpen} showModal={showModal} cancelModal={cancelModal} maskClosable={false} />
+            <ForgotPassword openModal={isModalOpen} showModal={showModal} cancelModal={cancelModal} maskClosable={false} showToast={showToast} />
         </React.Fragment>
     );
 });
