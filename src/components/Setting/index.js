@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { Tabs } from "antd";
 import "./setting.css";
 import ManagedAccount from "./ManagedAccount";
+import ManagedPortalDesign from "./ManagedPortalDesign";
 const ManagedSetting = memo((props) => {
     const { TabPane } = Tabs;
     return (
@@ -13,9 +14,7 @@ const ManagedSetting = memo((props) => {
                             <ManagedAccount />
                         </TabPane>
                         <TabPane tab="Design Your Blog Portal" key="2">
-                            <p>Content of Tab Pane 2</p>
-                            <p>Content of Tab Pane 2</p>
-                            <p>Content of Tab Pane 2</p>
+                            <ManagedPortalDesign />
                         </TabPane>
                     </Tabs>
                 </div>

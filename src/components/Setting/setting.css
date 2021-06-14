@@ -2,3 +2,18 @@
     color: #1d1e1f;
     font-weight: 500;
 }
+
+.settingContainer{
+    background:white;
+height:100%;
+ width:19%;
+ padding: 6px;
+ /* border-style:groove;
+ border-width: thin;
+ border-color: #FAFAFA; */
+/* position:fixed;
+ top:0;
+left:0; */
+box-shadow: 2px 2px 15px 7px rgba(0, 0, 0, 0.05);
+
+}

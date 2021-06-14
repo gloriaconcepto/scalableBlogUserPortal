@@ -1,0 +1,11 @@
+.react-colorful__saturation {
+    border-radius: 50% 50% 50% 50% !important;
+    -webkit-border-radius: 50% 50% 50% 50% !important;
+    -moz-border-radius: 50% 50% 50% 50% !important;
+    -ms-border-radius: 50% 50% 50% 50% !important;
+    -o-border-radius: 50% 50% 50% 50% !important;
+}
+
+.react-colorful{
+    height: 224px !important;
+  }
